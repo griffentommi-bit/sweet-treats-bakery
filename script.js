@@ -142,7 +142,7 @@ document.getElementById("cashappButton").addEventListener("click", function() {
     message += `Please click send to submit your order, then send your deposit via CashApp!`;
 
     // 3. Format link for WhatsApp (Replace 1234567890 with your actual phone number!)
-    const yourPhoneNumber = "4472750344"; 
+    const yourPhoneNumber = "14472750344"; 
     const whatsappUrl = `https://wa.me/${yourPhoneNumber}?text=${encodeURIComponent(message)}`;
 
     // 4. Alert user, open the text message, then go to CashApp
