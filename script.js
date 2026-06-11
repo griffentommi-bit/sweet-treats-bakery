@@ -113,12 +113,46 @@ document.getElementById("orderType").addEventListener("change", function(){
         this.value === "delivery" ? "flex" : "none";
 });
 
-document.getElementById("cashappButton").addEventListener("click", function(){
-    if(cart.length === 0){
+document.getElementById("cashappButton").addEventListener("click", function() {
+    if (cart.length === 0) {
         alert("Cart is empty");
         return;
     }
 
-    alert("Send deposit to $TommiGriffen");
-    window.open("https://cash.app/$TommiGriffen", "_blank");
+    // 1. Gather Customer and Customization Info
+    const customerName = document.getElementById("customerName")?.value || "Valued Customer";
+    const customerPhone = document.getElementById("customerPhone")?.value || "Not provided";
+    const orderType = document.getElementById("orderType")?.value || "Pickup";
+    const customNotes = document.getElementById("customNotes")?.value || "None";
+    const orderTotal = document.getElementById("orderTotal").innerText;
+
+    // 2. Build the Text Message Breakdown
+    let message = `🧁 *New Sweeten The Deal Order* 🧁\n\n`;
+    message += `👤 *Name:* ${customerName}\n`;
+    message += `📞 *Phone:* ${customerPhone}\n`;
+    message += `🚗 *Type:* ${orderType}\n\n`;
+    message += `🛍️ *Order Items:*\n`;
+    
+    cart.forEach(item => {
+        message += `- ${item.name} (Qty: ${item.quantity}) - $${item.total.toFixed(2)}\n`;
+    });
+    
+    message += `\n🎨 *Custom Theme/Notes:* ${customNotes}\n`;
+    message += `\n💰 *${orderTotal}*\n\n`;
+    message += `Please click send to submit your order, then send your deposit via CashApp!`;
+
+    // 3. Format link for WhatsApp (Replace 1234567890 with your actual phone number!)
+    const yourPhoneNumber = "4472750344"; 
+    const whatsappUrl = `https://wa.me/${yourPhoneNumber}?text=${encodeURIComponent(message)}`;
+
+    // 4. Alert user, open the text message, then go to CashApp
+    alert("Sending your order text! After sending, your browser will open CashApp for the deposit.");
+    
+    // Open text message window
+    window.open(whatsappUrl, "_blank");
+    
+    // Instantly forward them to your CashApp page right after
+    setTimeout(() => {
+        window.open("https://cash.app/$TommiGriffen", "_blank");
+    }, 1500);
 });
