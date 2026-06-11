@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Treats Bakery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+    <header class="hero">
+        <img src="image.png" alt="Sweet Treats Bakery Logo" class="logo">
+        <h1>🍓 Sweet Treats Bakery 🍓</h1>
+        <p>Sweetening the deal, one dessert at a time 🧁</p>
+    </header>
+
+    <div class="layout-container">
+        
+        <main class="main-content">
+            
+            <section class="content-section info-section">
+                <h2>👤 Step 1: Customer Information</h2>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input id="customerName" placeholder="Full Name">
+                        <input id="customerPhone" placeholder="Phone Number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="orderType">
+                            <option value="pickup">🚗 Pickup Order</option>
+                            <option value="delivery">📍 Delivery Order</option>
+                        </select>
+                    </div>
+
+                    <div id="deliveryFields">
+                        <input id="address" placeholder="Street Address">
+                        <div class="form-row">
+                            <input id="city" placeholder="City">
+                            <input id="state" placeholder="State">
+                            <input id="zip" placeholder="ZIP">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section menu-section">
+                <h2>🍰 Step 2: Choose Your Sweets</h2>
+                
+                <div class="menu-grid">
+                    
+                    <div class="product-card">
+                        <div>
+                            <h3>Mini Cakes</h3>
+                            <p class="description">Perfectly portioned personal cakes, beautifully frosted.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Mini Cake">
+                                <option value="1">1 Cake — $7.00</option>
+                                <option value="2">2 Cakes — $14.00</option>
+                                <option value="3">3 Cakes — $21.00</option>
+                                <option value="4">4 Cakes — $28.00</option>
+                                <option value="5">5 Cakes — $35.00</option>
+                                <option value="6">Half Dozen (6) — $40.00</option>
+                                <option value="12">Full Dozen (12) — $75.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Mini Cake')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Cupcakes</h3>
+                            <p class="description">Moist cupcakes topped with a swirl of rich buttercream.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Cupcakes">
+                                <option value="1">1 Cupcake — $3.00</option>
+                                <option value="2">2 Cupcakes — $6.00</option>
+                                <option value="3">3 Cupcakes — $9.00</option>
+                                <option value="4">4 Cupcakes — $12.00</option>
+                                <option value="5">5 Cupcakes — $15.00</option>
+                                <option value="6">Half Dozen (6) — $16.00</option>
+                                <option value="12">Full Dozen (12) — $30.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Cupcakes')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Cookies</h3>
+                            <p class="description">Soft-baked, chewy, and loaded with premium ingredients.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Cookies">
+                                <option value="1">1 Cookie — $3.00</option>
+                                <option value="2">2 Cookies — $6.00</option>
+                                <option value="3">3 Cookies — $9.00</option>
+                                <option value="4">4 Cookies — $12.00</option>
+                                <option value="5">5 Cookies — $15.00</option>
+                                <option value="6">Half Dozen (6) — $16.00</option>
+                                <option value="12">Full Dozen (12) — $30.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Cookies')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Cake Pops</h3>
+                            <p class="description">Fudgy cake bites on a stick, dipped in premium chocolate.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Cake Pops">
+                                <option value="1">1 Cake Pop — $2.50</option>
+                                <option value="2">2 Cake Pops — $5.00</option>
+                                <option value="3">3 Cake Pops — $7.50</option>
+                                <option value="4">4 Cake Pops — $10.00</option>
+                                <option value="5">5 Cake Pops — $12.50</option>
+                                <option value="6">Half Dozen (6) — $14.00</option>
+                                <option value="12">Full Dozen (12) — $25.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Cake Pops')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Dipped Strawberries</h3>
+                            <p class="description">Fresh, juicy strawberries hand-dipped in rich chocolate coating.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Strawberries">
+                                <option value="1">1 Strawberry — $1.50</option>
+                                <option value="2">2 Strawberries — $3.00</option>
+                                <option value="3">3 Strawberries — $4.50</option>
+                                <option value="4">4 Strawberries — $6.00</option>
+                                <option value="5">5 Strawberries — $7.50</option>
+                                <option value="6">Half Dozen (6) — $8.50</option>
+                                <option value="12">Full Dozen (12) — $16.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Strawberries')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Dipped Oreos</h3>
+                            <p class="description">Classic crunchy Oreos covered in a smooth chocolate layer.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Oreos">
+                                <option value="1">1 Oreo — $1.50</option>
+                                <option value="2">2 Oreos — $3.00</option>
+                                <option value="3">3 Oreos — $4.50</option>
+                                <option value="4">4 Oreos — $6.00</option>
+                                <option value="5">5 Oreos — $7.50</option>
+                                <option value="6">Half Dozen (6) — $8.50</option>
+                                <option value="12">Full Dozen (12) — $16.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Oreos')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Dipped Pretzels</h3>
+                            <p class="description">Salty, crunchy pretzel twists dipped in sweet candy shell.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Pretzels">
+                                <option value="1">1 Pretzel — $1.50</option>
+                                <option value="2">2 Pretzels — $3.00</option>
+                                <option value="3">3 Pretzels — $4.50</option>
+                                <option value="4">4 Pretzels — $6.00</option>
+                                <option value="5">5 Pretzels — $7.50</option>
+                                <option value="6">Half Dozen (6) — $8.50</option>
+                                <option value="12">Full Dozen (12) — $16.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Pretzels')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div>
+                            <h3>Dipped Rice Krispies</h3>
+                            <p class="description">Gooey marshmallow treats dipped and decorated beautifully.</p>
+                        </div>
+                        <div class="selector-group">
+                            <select id="qty-Rice Krispies">
+                                <option value="1">1 Krispie — $1.50</option>
+                                <option value="2">2 Krispies — $3.00</option>
+                                <option value="3">3 Krispies — $4.50</option>
+                                <option value="4">4 Krispies — $6.00</option>
+                                <option value="5">5 Krispies — $7.50</option>
+                                <option value="6">Half Dozen (6) — $8.50</option>
+                                <option value="12">Full Dozen (12) — $16.00</option>
+                            </select>
+                            <button onclick="handleMenuAdd('Rice Krispies')">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card special-box">
+                        <div>
+                            <h3>💝 Deal Box</h3>
+                            <p class="description">Our ultimate bundle! Features a sampler layout of our top desserts.</p>
+                        </div>
+                        <div class="selector-group">
+                            <p class="price">$50.00</p>
+                            <button onclick="addDealBox()">Add Deal Box</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card special-box">
+                        <div>
+                            <h3>🎉 Party Box</h3>
+                            <p class="description">The ultimate celebration pack! Filled to the brim with desserts.</p>
+                        </div>
+                        <div class="selector-group">
+                            <p class="price">$125.00</p>
+                            <button onclick="addPartyBox()">Add Party Box</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="sidebar">
+            <section class="content-section cart-section">
+                <h2>🛒 Step 3: Your Cart</h2>
+                <div class="card-body">
+                    <div id="cartItems">
+                    </div>
+
+                    <div class="cart-summary">
+                        <div class="summary-row"><span>Total:</span> <span id="orderTotal">$0.00</span></div>
+                        <div class="summary-row highlight"><span>Deposit (50%):</span> <span id="depositTotal">$0.00</span></div>
+                        <div class="summary-row"><span>Remaining:</span> <span id="remainingTotal">$0.00</span></div>
+                    </div>
+
+                    <button id="cashappButton" class="checkout-btn">💸 Pay Deposit ($TommiGriffen)</button>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
